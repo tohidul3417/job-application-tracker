@@ -4,13 +4,9 @@ import * as Yup from "yup";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addJob, updateJob } from "../redux/reducers/jobReducer";
+import { useToast } from "./ToastContext";  // Update this path based on your file structure
 
-/**
- * CustomTextInput component to render an input field with formik
- *
- * @param {object} props - The properties passed to the input field
- * @returns {JSX.Element} The CustomTextInput component
- */
+// Custom form components
 const CustomTextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   const hasError = meta.touched && meta.error;
@@ -36,12 +32,6 @@ const CustomTextInput = ({ label, ...props }) => {
   );
 };
 
-/**
- * CustomSelect component to render a select field with formik
- *
- * @param {object} props - The properties passed to the select field
- * @returns {JSX.Element} The CustomSelect component
- */
 const CustomSelect = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   const hasError = meta.touched && meta.error;
@@ -67,16 +57,11 @@ const CustomSelect = ({ label, ...props }) => {
   );
 };
 
-/**
- * JobForm component to add or edit a job application
- *
- * @param {boolean} isEditing - Indicates if the form is in the editing mode
- * @returns {JSX.Element} The JobForm component
- */
 function JobForm({ isEditing }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
+  const { addToast } = useToast();
   const jobs = useSelector((state) => state.jobs.jobList);
   const job = jobs.find((job) => job.id === parseInt(id));
 
@@ -94,13 +79,19 @@ function JobForm({ isEditing }) {
   });
 
   const handleSubmit = (values, { resetForm }) => {
-    if (isEditing) {
-      dispatch(updateJob(values));
-      resetForm();
-      navigate("/dashboard");
-    } else {
-      dispatch(addJob(values));
-      resetForm();
+    try {
+      if (isEditing) {
+        dispatch(updateJob(values));
+        addToast(`Successfully updated ${values.position} at ${values.company}`, 'success');
+        resetForm();
+        navigate("/dashboard");
+      } else {
+        dispatch(addJob(values));
+        addToast(`Successfully added ${values.position} at ${values.company}`, 'success');
+        resetForm();
+      }
+    } catch (error) {
+      addToast(error.message || 'An error occurred', 'error');
     }
   };
 
@@ -136,8 +127,8 @@ function JobForm({ isEditing }) {
             <CustomSelect label="Status" name="status" id="status">
               <option value="Applied">Applied</option>
               <option value="Interview">Interview</option>
-              <option values="Offer">Offer</option>
-              <option values="Rejected">Rejected</option>
+              <option value="Offer">Offer</option>
+              <option value="Rejected">Rejected</option>
             </CustomSelect>
 
             <div className="mt-4">
