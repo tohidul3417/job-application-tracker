@@ -105,5 +105,5 @@ For any questions or suggestions, please contact:
 
 - **Name**: Mohammad Tohidul Hasan (Tohid)
 - **Email**: [tohid@tohid.dev](mailto:tohid@tohid.dev)
-- **GitHub**: [hasantohidul](https://github.com/tohidul3417)
-- **LinkedIn**: [hasantohidul](https://www.linkedin.com/in/tohidul3417/)
+- **GitHub**: [tohidul3417](https://github.com/tohidul3417)
+- **LinkedIn**: [tohidul3417](https://www.linkedin.com/in/tohidul3417/)
