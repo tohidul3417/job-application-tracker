@@ -29,7 +29,7 @@ Check out the live demo of the application [here](https://job-application-tracke
 
 1.  **Clone the repository**
     ```sh
-    git clone https://github.com/hasantohidul/job-application-tracker.git
+    git clone https://github.com/tohidul3417/job-application-tracker.git
     ```
 2. Navigate to the project directory
     ```sh
@@ -105,5 +105,5 @@ For any questions or suggestions, please contact:
 
 - **Name**: Mohammad Tohidul Hasan (Tohid)
 - **Email**: [tohid@tohid.dev](mailto:tohid@tohid.dev)
-- **GitHub**: [hasantohidul](https://github.com/tohidul3417)
-- **LinkedIn**: [hasantohidul](https://www.linkedin.com/in/tohidul3417/)
+- **GitHub**: [tohidul3417](https://github.com/tohidul3417)
+- **LinkedIn**: [tohidul3417](https://www.linkedin.com/in/tohidul3417/)
