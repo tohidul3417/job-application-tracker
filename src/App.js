@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Dashboard from "./components/Dashboard";
 import JobForm from "./components/JobForm";
-import { ToastProvider } from "./components/ToastContext";
+import { ToastProvider } from "./contexts/ToastContext";
 
 /**
  * App component to set up routing for the application

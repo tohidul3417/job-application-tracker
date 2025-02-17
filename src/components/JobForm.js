@@ -4,9 +4,9 @@ import * as Yup from "yup";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addJob, updateJob } from "../redux/reducers/jobReducer";
-import { useToast } from "./ToastContext";  // Update this path based on your file structure
+import { useToast } from "../contexts/ToastContext";
 
-// Custom form components
+// Custom form components remain the same...
 const CustomTextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   const hasError = meta.touched && meta.error;
@@ -82,7 +82,7 @@ function JobForm({ isEditing }) {
     try {
       if (isEditing) {
         dispatch(updateJob(values));
-        addToast(`Successfully updated ${values.position} at ${values.company}`, 'success');
+        addToast(`Successfully updated ${values.position} at ${values.company}`, 'update');
         resetForm();
         navigate("/dashboard");
       } else {
