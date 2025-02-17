@@ -1,6 +1,5 @@
-// ToastContext.js
 import React, { createContext, useContext, useState } from 'react';
-import { CheckCircle, XCircle, AlertCircle, InfoIcon, X } from 'lucide-react';
+import { CheckCircle, XCircle, AlertCircle, InfoIcon, X, Trash2 } from 'lucide-react';
 
 const ToastContext = createContext();
 
@@ -52,6 +51,13 @@ export function ToastProvider({ children }) {
           borderColor: 'border-yellow-500',
           textColor: 'text-yellow-900'
         };
+      case 'delete':
+        return {
+          icon: <Trash2 className="w-6 h-6 text-rose-500" />,
+          borderColor: 'border-rose-500',
+          textColor: 'text-rose-900', 
+          bgColor: 'bg-rose-50'
+        };
       default:
         return {
           icon: <CheckCircle className="w-6 h-6 text-green-500" />,
@@ -67,13 +73,13 @@ export function ToastProvider({ children }) {
       <div className="fixed top-0 left-0 right-0 flex flex-col items-center z-50 pointer-events-none">
         <div className="space-y-4 mt-4 max-w-md w-full pointer-events-auto">
           {toasts.map((toast) => {
-            const { icon, borderColor, textColor } = getToastProps(toast.type);
+            const { icon, borderColor, textColor, bgColor = 'bg-white' } = getToastProps(toast.type);
             
             return (
               <div
                 key={toast.id}
                 className={`mx-4 flex items-center p-4 rounded-xl shadow-lg transform transition-all duration-500 ease-in-out 
-                  bg-white bg-opacity-95 border-b-4 ${borderColor} animate-slide-down`}
+                  ${bgColor} bg-opacity-95 border-b-4 ${borderColor} animate-slide-down`}
                 style={{
                   backdropFilter: 'blur(8px)',
                   WebkitBackdropFilter: 'blur(8px)'

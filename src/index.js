@@ -5,6 +5,7 @@ import store from "./redux/store";
 import App from "./App";
 import ThemeProvider from "./contexts/ThemeContext";
 import './index.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Create the root element for the React app
 const root = createRoot(document.getElementById("root"));
