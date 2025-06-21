@@ -99,11 +99,3 @@ The current implementation is focused on the front-end. Future plans include int
 Contributions are welcome! Please fork this repository and submit a pull request for any features, enhancements, or bug fixes.
 ## 📜 License
 This project is licensed under the MIT License
-## ✉️ Contact
-
-For any questions or suggestions, please contact:
-
-- **Name**: Mohammad Tohidul Hasan (Tohid)
-- **Email**: [tohid@tohid.dev](mailto:tohid@tohid.dev)
-- **GitHub**: [tohidul3417](https://github.com/tohidul3417)
-- **LinkedIn**: [tohidul3417](https://www.linkedin.com/in/tohidul3417/)
